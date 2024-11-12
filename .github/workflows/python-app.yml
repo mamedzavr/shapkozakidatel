@@ -55,7 +55,7 @@ jobs:
 
       # Восстанавливаем предыдущие фильтры
       - name: Download previous filters
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: filter-data
           path: ./data
