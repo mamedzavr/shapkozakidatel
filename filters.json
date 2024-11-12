@@ -1,0 +1,20 @@
+{
+  "привет": {
+    "message_id": 23,
+    "chat_id": 38907340,
+    "text": null,
+    "photo": null,
+    "video": null,
+    "animation": null,
+    "sticker": null,
+    "voice": null,
+    "audio": null,
+    "document": null,
+    "caption": null
+  },
+  "пока": {
+    "message_id": 31,
+    "chat_id": 38907340,
+    "text": "Список активных фильтров:\n• привет"
+  }
+}
