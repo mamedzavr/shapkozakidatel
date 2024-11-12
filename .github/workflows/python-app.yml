@@ -44,6 +44,8 @@ jobs:
         pytest
 
     - name: Run bot
+      env:
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       run: |
         echo "Starting Telegram Bot..."
         
