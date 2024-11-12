@@ -5,6 +5,10 @@ env/
 
 # Python
 __pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
 *.py[cod]
 *$py.class
 
