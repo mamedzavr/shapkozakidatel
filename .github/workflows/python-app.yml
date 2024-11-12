@@ -55,7 +55,7 @@ jobs:
 
       # Восстанавливаем предыдущие фильтры
       - name: Download previous filters
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: filter-data
           path: ./data
@@ -83,7 +83,7 @@ jobs:
 
       # Сохраняем фильтры
       - name: Upload filters
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: filter-data
           path: ./data/filters.db
