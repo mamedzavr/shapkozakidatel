@@ -37,8 +37,9 @@ jobs:
           pytest
 
   deploy:
-    needs: test # Запускаем деплой только после успешного тестирования
+    needs: test
     runs-on: ubuntu-latest
+    timeout-minutes: 0
 
     steps:
       - uses: actions/checkout@v4
@@ -63,26 +64,12 @@ jobs:
 
       # Запускаем бота
       - name: Run bot
-        id: run_bot  # Добавляем id для отслеживания статуса
-        continue-on-error: true  # Позволяем продолжить выполнение даже при ошибке
+        id: run_bot
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
         run: |
           echo "Starting Telegram Bot..."
-          python bot.py &
-          
-          # Даем боту время на инициализацию
-          sleep 30
-          
-          # Проверяем, что бот все еще работает
-          if ps aux | grep "[p]ython bot.py" > /dev/null; then
-            echo "Bot is running, stopping gracefully..."
-            kill $(ps aux | grep "[p]ython bot.py" | awk '{print $2}')
-            exit 0
-          else
-            echo "Bot process not found!"
-            exit 1
-          fi
+          python bot.py
 
       # Сохраняем фильтры только если бот завершился с ошибкой
       - name: Upload filters
